@@ -28,6 +28,7 @@ class TestHotel(object):
         assert page_name.text == "HOOTEL"
 
     def test_login(self):
+        allure.dynamic.description(self.browser.get_window_size("current"))
         signin_btn = self.browser.find_element(By.CSS_SELECTOR, 'a[class="nav-link"]')
         signin_btn.click()
         email_input = WebDriverWait(self.browser, 5).until(EC.presence_of_element_located((By.ID, 'email')))
